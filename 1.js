@@ -1,5 +1,3 @@
-// Movie collection array
-
 const movies = [
 
     { title: "Inception", genre: "Sci-Fi", rating: 8.8, releaseYear: 2010 },
@@ -11,24 +9,19 @@ const movies = [
 ];
 
 
-// Add movie function
-
 const addMovie = (collection, movie) => {
 
     collection.push(movie);
 
-    displayMovies(); // Display the updated list of movies
+    displayMovies(); 
 
 };
-
-
-// Function to display the list of movies
 
 const displayMovies = () => {
 
     const movieList = document.getElementById("movieList");
 
-    movieList.innerHTML = ""; // Clear the list before displaying it
+    movieList.innerHTML = ""; 
 
 
     movies.forEach(movie => {
@@ -54,31 +47,25 @@ const displayMovies = () => {
 };
 
 
-// Remove movie function
-
 const removeMovie = (title) => {
 
     const index = movies.findIndex(movie => movie.title === title);
 
     if (index !== -1) {
 
-        movies.splice(index, 1); // Remove the movie from the array
+        movies.splice(index, 1); 
 
-        displayMovies(); // Update the movie list
+        displayMovies(); 
 
     }
 
 };
 
 
-// Event listener for the form submission
-
 document.getElementById("movieForm").addEventListener("submit", (e) => {
 
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault(); 
 
-
-    // Get movie details from the form
 
     const title = document.getElementById("title").value;
 
@@ -88,25 +75,14 @@ document.getElementById("movieForm").addEventListener("submit", (e) => {
 
     const releaseYear = parseInt(document.getElementById("releaseYear").value);
 
-
-    // Create a new movie object
-
     const newMovie = { title, genre, rating, releaseYear };
 
-
-    // Add the new movie to the collection
-
     addMovie(movies, newMovie);
-
-
-    // Reset the form
 
     document.getElementById("movieForm").reset();
 
 });
 
-
-// Display the movies initially
 
 displayMovies();
 
